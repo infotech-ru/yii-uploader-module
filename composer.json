@@ -1,0 +1,25 @@
+{
+    "name": "terrasoff/yii-uploader-module",
+    "description": "File uploader module for Yii Framework.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Tyutin",
+            "email": "anton@tyutin.ru"
+        },
+        {
+            "name": "Tarasov Konstantin",
+            "email": "terrasoff@terrasoff.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "yiisoft/yii": "dev-master",
+        "infotech/yii-file-storage": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "YiiFileUploader\\": "src/"
+        }
+    }
+}

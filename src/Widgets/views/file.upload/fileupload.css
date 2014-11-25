@@ -1,0 +1,26 @@
+.uploader {
+	width: 100%;
+	font-size: 1.1em;
+}
+
+.uploader > span {
+	display: inline-block;
+	/*min-width: 30%;*/
+}
+
+
+.uploader > .fileinfo > .name {
+	margin-right: 10px;
+}
+
+.uploader > .fileinfo > .size {
+	margin-left: 10px;
+}
+
+.uploader > .uploadStatus {
+	text-align: center;
+}
+
+.uploader > .actions {
+	font-size: 0.9em;
+}
