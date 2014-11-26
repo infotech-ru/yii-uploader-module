@@ -25,7 +25,7 @@
             "package": {
                 "name": "components/jQuery-Ajax-Upload",
                 "type": "component",
-                "version": "dev-master",
+                "version": "2.0.1",
                 "source": {
                     "url": "https://github.com/codler/jQuery-Ajax-Upload",
                     "reference": "v2.0.1",
