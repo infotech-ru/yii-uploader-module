@@ -16,14 +16,8 @@
     "require": {
         "yiisoft/yii": "dev-master",
         "infotech/yii-file-storage": "dev-master",
-        "codler/jQuery-Ajax-Upload": "dev-master"
+        "codler/jQuery-Ajax-Upload": "v2.0.1"
     },
-    "repositories" : [
-        {
-            "type": "git",
-            "url": "https://github.com/codler/jQuery-Ajax-Upload" 
-        }
-    ],
     "autoload": {
         "psr-4": {
             "YiiFileUploader\\": "src/"
