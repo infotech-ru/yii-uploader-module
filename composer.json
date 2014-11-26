@@ -16,7 +16,7 @@
     "require": {
         "yiisoft/yii": "dev-master",
         "infotech/yii-file-storage": "dev-master",
-        "codler/jQuery-Ajax-Upload": "*"
+        "codler/jquery-ajax-upload": "dev-master"
     },
     "repositories": [
         {
