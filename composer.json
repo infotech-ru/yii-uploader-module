@@ -18,6 +18,19 @@
         "infotech/yii-file-storage": "dev-master",
         "codler/jQuery-Ajax-Upload": "*"
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "codler/jQuery-Ajax-Upload",
+                "version": "dev-master",
+                "dist": {
+                    "url": "https://github.com/codler/jQuery-Ajax-Upload/archive/v2.0.1.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    ],
     "autoload": {
         "psr-4": {
             "YiiFileUploader\\": "src/"
