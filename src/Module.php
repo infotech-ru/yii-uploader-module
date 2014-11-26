@@ -1,15 +1,10 @@
 <?php
-/**
- * @author Anton Tyutin <anton@tyutin.ru>
- */
-
 namespace YiiFileUploader;
 
 use CException;
 use CWebModule;
 use Infotech\FileStorage\Storage\StorageInterface;
 use Yii;
-use YiiFileUploader\Form\FileFormBehavior;
 
 class Module extends CWebModule
 {
@@ -17,9 +12,16 @@ class Module extends CWebModule
 
     public $defaultController = 'upload';
 
-    public $controllerMap = [
-        'upload' => 'YiiFileUploader\Controller\UploaderController'
-    ];
+    public $controllerNamespace = '\YiiFileUploader\Controller';
+
+    public $viewRoute = 'uploader/upload/get';
+
+    /**
+     * Path to jQuery-Ajax-Upload plugin
+     * Default is getting by alias (vendor.codler.jQuery-Ajax-Upload)
+     * @var null
+     */
+    public $defaultPluginPath = null;
 
     public function init()
     {
@@ -27,7 +29,6 @@ class Module extends CWebModule
 
         return parent::init();
     }
-
 
     public function getControllerPath()
     {
@@ -55,9 +56,16 @@ class Module extends CWebModule
     {
         /** @var \CClientScript $clientScript */
         $clientScript = Yii::app()->getClientScript();
-        $path = Yii::getPathOfAlias('vendor.codler.jQuery-Ajax-Upload');
-        $url = Yii::app()->assetManager->publish($path, false, -1, YII_DEBUG);
-        $clientScript->registerScriptFile($url.'jquery.ajaxupload.js');
+        $path = $this->defaultPluginPath ?: Yii::getPathOfAlias('vendor.codler.jQuery-Ajax-Upload');
+        $url = Yii::app()->assetManager->publish($path, false, -1);
+        $clientScript->registerScriptFile($url.'/jquery.ajaxupload.js');
+    }
+
+    public function getUrl($path)
+    {
+        return Yii::app()->createUrl($this->viewRoute, [
+            'filename' => $path
+        ]);
     }
 }
 
