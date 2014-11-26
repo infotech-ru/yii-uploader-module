@@ -50,8 +50,7 @@
     },
     "autoload": {
         "psr-4": {
-            "YiiFileUploader\\": "src/",
-            "YiiFileUploader\\Controller": "src/Controller"
+            "YiiFileUploader\\": "src/"
         }
     }
 }
