@@ -16,7 +16,7 @@
     "require": {
         "yiisoft/yii": "dev-master",
         "infotech/yii-file-storage": "dev-master",
-        "codler/jQuery-Ajax-Upload": "v2.0.1"
+        "codler/jQuery-Ajax-Upload": "*"
     },
     "autoload": {
         "psr-4": {
