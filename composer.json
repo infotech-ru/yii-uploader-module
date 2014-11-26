@@ -16,7 +16,7 @@
     "require": {
         "yiisoft/yii": "dev-master",
         "infotech/yii-file-storage": "dev-master",
-        "codler/jQuery-Ajax-Upload": "dev-master",
+        "codler/jQuery-Ajax-Upload": "*",
         "RobLoach/component-installer": "dev-master"
     },
     "repositories": [
@@ -25,7 +25,7 @@
             "package": {
                 "name": "components/jQuery-Ajax-Upload",
                 "type": "component",
-                "version": "2.0.1",
+                "version": "dev-master",
                 "source": {
                     "url": "https://github.com/codler/jQuery-Ajax-Upload",
                     "reference": "v2.0.1",
