@@ -8,6 +8,7 @@ namespace YiiFileUploader;
 use CException;
 use CWebModule;
 use Infotech\FileStorage\Storage\StorageInterface;
+use Yii;
 use YiiFileUploader\Form\FileFormBehavior;
 
 class Module extends CWebModule
@@ -20,19 +21,17 @@ class Module extends CWebModule
         'upload' => 'YiiFileUploader\Controller\UploaderController'
     ];
 
+    public function init()
+    {
+        $this->registerAssets();
+
+        return parent::init();
+    }
+
 
     public function getControllerPath()
     {
         return __DIR__ . '/Controller';
-    }
-
-    public function createFileFormBehavior(StorageInterface $permanentStorage, $permanentStoragePrefix = '')
-    {
-        return new FileFormBehavior(
-            $permanentStorage,
-            $this->getTemporaryStorage(),
-            $permanentStoragePrefix
-        );
     }
 
     public function getTemporaryStorage()
@@ -50,6 +49,15 @@ class Module extends CWebModule
         }
 
         return $component;
+    }
+
+    protected function registerAssets()
+    {
+        /** @var \CClientScript $clientScript */
+        $clientScript = Yii::app()->getClientScript();
+        $path = Yii::getPathOfAlias('vendor.codler.jQuery-Ajax-Upload');
+        $url = Yii::app()->assetManager->publish($path, false, -1, YII_DEBUG);
+        $clientScript->registerScriptFile($url.'jquery.ajaxupload.js');
     }
 }
 

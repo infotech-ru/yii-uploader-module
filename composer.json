@@ -16,37 +16,7 @@
     "require": {
         "yiisoft/yii": "dev-master",
         "infotech/yii-file-storage": "dev-master",
-        "components/jQuery-Ajax-Upload": "dev-master",
-        "RobLoach/component-installer": "dev-master"
-    },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "components/jQuery-Ajax-Upload",
-                "type": "component",
-                "version": "dev-master",
-                "source": {
-                    "url": "https://github.com/codler/jQuery-Ajax-Upload",
-                    "reference": "v2.0.1",
-                    "type": "git"
-                },
-                "extra": {
-                    "name": "codler/jQuery-Ajax-Upload",
-                    "component": {
-                        "files": [
-                            "./jquery.ajaxupload.js"
-                        ]
-                    }
-                },
-                "require": {
-                    "robloach/component-installer": "*"
-                }
-            }
-        }
-    ],
-    "config": {
-        "component-dir": "assets"
+        "codler/jQuery-Ajax-Upload": "dev-master"
     },
     "autoload": {
         "psr-4": {
