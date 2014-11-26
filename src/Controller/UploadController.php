@@ -3,7 +3,7 @@
  * @author Мурат Эркенов <murat@11bits.net>
  */
 
-namespace YiiFileUploader\Controllers;
+namespace YiiFileUploader\Controller;
 
 use Infotech\FileStorage\File\FileDescriptor;
 use Infotech\FileStorage\Storage\StorageInterface;
@@ -13,7 +13,6 @@ use CUploadedFile;
 use CWebApplication;
 use WebUser;
 use Yii;
-use YiiFileUploader\FileUploaderModule;
 
 class UploadController extends CController
 {

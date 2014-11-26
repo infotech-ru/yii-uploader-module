@@ -10,20 +10,20 @@ use CWebModule;
 use Infotech\FileStorage\Storage\StorageInterface;
 use YiiFileUploader\Form\FileFormBehavior;
 
-class FileUploaderModule extends CWebModule
+class Module extends CWebModule
 {
     const TEMPORARY_STORAGE_PARAM = 'storage';
 
-    public $controllerNamespace = 'YiiFileStorage\Controllers';
-
     public $defaultController = 'upload';
 
-    /**
-     * @return string the directory that contains the controller classes. Defaults to 'protected/controllers'.
-     */
+    public $controllerMap = [
+        'upload' => 'YiiFileUploader\Controller\UploaderController'
+    ];
+
+
     public function getControllerPath()
     {
-        return __DIR__ . '/Controllers';
+        return __DIR__ . '/Controller';
     }
 
     public function createFileFormBehavior(StorageInterface $permanentStorage, $permanentStoragePrefix = '')
@@ -51,5 +51,5 @@ class FileUploaderModule extends CWebModule
 
         return $component;
     }
-
 }
+
