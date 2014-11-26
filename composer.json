@@ -16,7 +16,7 @@
     "require": {
         "yiisoft/yii": "dev-master",
         "infotech/yii-file-storage": "dev-master",
-        "codler/jQuery-Ajax-Upload": "*",
+        "components/jQuery-Ajax-Upload": "dev-master",
         "RobLoach/component-installer": "dev-master"
     },
     "repositories": [
