@@ -56,7 +56,8 @@ SCRIPT;
         return
             CHtml::script($script) .
             CHtml::activeHiddenField($model, $attribute) .
-            CHtml::button('Добавить', $htmlOptions)
+            CHtml::button('Загрузить', $htmlOptions) .
+            CHtml::activeHiddenField($model, $model->getTableSchema()->primaryKey)
         ;
     }
 }
