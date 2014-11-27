@@ -44,17 +44,17 @@ class UploadHelper extends CHtml
         $name = CHtml::resolveName($model, $attribute);
 
         $script = <<< SCRIPT
-app.on('uploader:upload', function(data) {
-    if (data.id == undefined || data.id === "{$options['id']}") {
-        $('[name="{$name}"]').val(data.files.join(','))
-    }
-})
+$(function() {
+    app.on('uploader:upload', function(data) {
+        if (data.id == undefined || data.id === "{$options['id']}") {
+            $('[name="{$name}"]').val(data.files.join(','))
+        }
+    })
+});
 SCRIPT;
-        /** @var CClientScript $cs */
-        $cs = Yii::app()->clientScript;
-        $cs->registerScript('uploader', $script, CClientScript::POS_READY);
 
         return
+            CHtml::script($script) .
             CHtml::activeHiddenField($model, $attribute) .
             CHtml::button('Добавить', $htmlOptions)
         ;
