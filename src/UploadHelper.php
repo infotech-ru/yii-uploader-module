@@ -18,10 +18,10 @@ class UploadHelper extends CHtml
         $options['button'] = false;
 
         return
+            CHtml::button('Удалить', ['class' => 'delete']) .
             self::activeImage($model, $attribute, $options, $htmlOptions) .
             self::activeUploadField($model, $attribute, $options, $htmlOptions)
         ;
-
     }
     public static function activeImage(
         CActiveRecord $model,
@@ -32,15 +32,23 @@ class UploadHelper extends CHtml
         $options = CMap::mergeArray([
             'module' => 'uploader',
             'title' => 'Изображение',
+            'default-image' => null,
         ], $options);
 
+
         /** @var Module $module */
-        $module = Yii::app()->getModule($options['module']);
         $images = explode(',', $model->{$attribute});
-        $url = isset($images[0])
-            ? $module->getUrl($images[0])
-            : $module->defaultImage;
-        ;
+        $module = Yii::app()->getModule($options['module']);
+        if (empty($images[0])) {
+            $defaultImage = $options['default-image'] !== null
+                ? $options['default-image']
+                : $module->defaultImage;
+            $url = $defaultImage;
+        } else {
+            $url = $module->getUrl($images[0]);
+        }
+
+        $htmlOptions['data-default-image'] = $defaultImage;
 
         return CHtml::image($url, $options['title'], $htmlOptions);
     }
@@ -53,30 +61,15 @@ class UploadHelper extends CHtml
     {
         $options = CMap::mergeArray([
             'button' => true,
-            'id' => 'uploader',
         ], $options);
 
         $name = CHtml::resolveName($model, $attribute);
-
-        // после загрузки файлов
-        // заполняем поле с файлами для данной модели
-        // значениями загруженных файлов
-        $script = <<< SCRIPT
-$(function() {
-    app.on('uploader:uploaded', function(data) {
-        if (data.id == undefined || data.id === "{$options['id']}") {
-            $('[name="{$name}"]').val(data.files.join(','))
-        }
-    })
-});
-SCRIPT;
 
         $button = $options['button']
             ? CHtml::button('Загрузить', $htmlOptions)
             : '';
 
         return
-            CHtml::script($script) .
             CHtml::activeHiddenField($model, $attribute) .
             $button
         ;
