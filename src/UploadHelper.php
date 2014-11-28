@@ -15,10 +15,7 @@ class UploadHelper extends CHtml
         array $options = [],
         array $htmlOptions = [])
     {
-        $options['button'] = false;
-
         return
-            CHtml::button('Удалить', ['class' => 'delete']) .
             self::activeImage($model, $attribute, $options, $htmlOptions) .
             self::activeUploadField($model, $attribute, $options, $htmlOptions)
         ;
@@ -60,18 +57,24 @@ class UploadHelper extends CHtml
         array $htmlOptions = [])
     {
         $options = CMap::mergeArray([
-            'button' => true,
+            'addButton' => true,
+            'deleteButton' => true,
         ], $options);
 
         $name = CHtml::resolveName($model, $attribute);
 
-        $button = $options['button']
+        $addButton = $options['addButton']
             ? CHtml::button('Загрузить', $htmlOptions)
             : '';
 
+        $deleteButton = $options['deleteButton']
+            ? CHtml::button('удалить', $htmlOptions)
+            : '';
+
         return
+            $addButton .
             CHtml::activeHiddenField($model, $attribute) .
-            $button
+            $deleteButton
         ;
     }
 }
