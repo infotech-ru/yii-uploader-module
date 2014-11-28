@@ -16,6 +16,8 @@ class Module extends CWebModule
 
     public $viewRoute = 'uploader/upload/get';
 
+    public $defaultImage = null;
+
     /**
      * Path to jQuery-Ajax-Upload plugin
      * Default is getting by alias (vendor.codler.jQuery-Ajax-Upload)
@@ -63,9 +65,9 @@ class Module extends CWebModule
 
     public function getUrl($path)
     {
-        return Yii::app()->createUrl($this->viewRoute, [
-            'filename' => $path
-        ]);
+        return $path
+            ? Yii::app()->createUrl($this->viewRoute, ['filename' => $path])
+            : '';
     }
 }
 
