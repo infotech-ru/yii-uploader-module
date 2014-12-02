@@ -22,7 +22,7 @@
         {
             "type": "package",
             "package": {
-                "name": "codler/jQuery-Ajax-Upload",
+                "name": "codler/jquery-ajax-upload",
                 "version": "dev-master",
                 "dist": {
                     "url": "https://github.com/codler/jQuery-Ajax-Upload/archive/v2.0.1.zip",
