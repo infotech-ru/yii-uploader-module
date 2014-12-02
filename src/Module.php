@@ -58,7 +58,7 @@ class Module extends CWebModule
     {
         /** @var \CClientScript $clientScript */
         $clientScript = Yii::app()->getClientScript();
-        $path = $this->defaultPluginPath ?: Yii::getPathOfAlias('vendor.codler.jQuery-Ajax-Upload');
+        $path = $this->defaultPluginPath ?: Yii::getPathOfAlias('vendor.codler.jquery-ajax-upload');
         $url = Yii::app()->assetManager->publish($path, false, -1);
         $clientScript->registerScriptFile($url.'/jquery.ajaxupload.js');
     }
