@@ -2,6 +2,7 @@
 namespace YiiFileUploader;
 
 use CException;
+use CWebApplication;
 use CWebModule;
 use Infotech\FileStorage\Storage\StorageInterface;
 use Yii;
@@ -27,7 +28,10 @@ class Module extends CWebModule
 
     public function init()
     {
-        $this->registerAssets();
+        $app = Yii::app();
+        if ($app instanceof CWebApplication) {
+            $this->registerAssets();
+        }
 
         return parent::init();
     }
