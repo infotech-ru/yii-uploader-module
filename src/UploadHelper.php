@@ -32,14 +32,15 @@ class UploadHelper extends CHtml
             'default-image' => null,
         ], $options);
 
-
         /** @var Module $module */
-        $images = explode(',', $model->{$attribute});
         $module = Yii::app()->getModule($options['module']);
+
+        $defaultImage = $options['default-image'] !== null
+            ? $options['default-image']
+            : $module->defaultImage;
+
+        $images = explode(',', $model->{$attribute});
         if (empty($images[0])) {
-            $defaultImage = $options['default-image'] !== null
-                ? $options['default-image']
-                : $module->defaultImage;
             $url = $defaultImage;
         } else {
             $url = $module->getUrl($images[0]);
