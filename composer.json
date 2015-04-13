@@ -12,7 +12,6 @@
             "email": "terrasoff@terrasoff.ru"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "yiisoft/yii": "dev-master",
         "infotech/yii-file-storage": "dev-master",
