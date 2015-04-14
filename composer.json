@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "yiisoft/yii": "dev-master",
+        "yiisoft/yii": "*",
         "infotech/yii-file-storage": "dev-master",
         "codler/jquery-ajax-upload": "dev-master"
     },
